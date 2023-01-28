@@ -1,1 +1,1 @@
-GET https://puhelinluettelo-rtapper1.onrender.com:10000/api/persons
+GET https://puhelinluettelo-rtapper1.onrender.com/api/persons

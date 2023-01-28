@@ -108,7 +108,7 @@ app.put('/api/persons/:id', (req, res, next) => {
     name: req.body.name,
     number: req.body.number
   }
-  Person.findByIdAndUpdate(id, person, {new: true, runValidators: true, context: 'query'})
+  Person.findByIdAndUpdate(id, person, { new: true, runValidators: true, context: 'query' })
     .then(newPerson => {
       res.json(newPerson)
     })
@@ -116,7 +116,7 @@ app.put('/api/persons/:id', (req, res, next) => {
 })
 
 const unknownEndpoint = (req, res) => {
-  res.status(404).send({error: 'unknown endpoint'})
+  res.status(404).send({ error: 'unknown endpoint' })
 }
 app.use(unknownEndpoint)
 
@@ -124,9 +124,9 @@ const errorHandler = (err, req, res, next) => {
   console.error(err.message)
 
   if (err.name === 'CastError') {
-    return res.status(400).send({error: 'malformatted id'})
+    return res.status(400).send({ error: 'malformatted id' })
   } else if (err.name === 'ValidationError') {
-    return res.status(400).send({error: err.message})
+    return res.status(400).send({ error: err.message })
   }
 
   next(err)
